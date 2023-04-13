@@ -1,6 +1,4 @@
- 
-
-# Import the libraries
+ # Import the libraries
 
 import matplotlib.pyplot as plt
 
@@ -9,6 +7,8 @@ import textract
 import streamlit as st
 
 import os
+
+import tempfile
 
 # Create a title and a sidebar
 
@@ -42,9 +42,21 @@ else:
 
 if text_file is not None and keywords_file is not None:
 
-    # Extract the text from the text file
+    # Create a temporary file
 
-    text = textract.process(text_file).decode()
+    with tempfile.NamedTemporaryFile(delete=False) as tmp:
+
+        # Write the uploaded file content to the temporary file
+
+        tmp.write(text_file.getvalue())
+
+        # Get the temporary file name
+
+        tmp_file_name = tmp.name
+
+    # Extract the text from the temporary file
+
+    text = textract.process(tmp_file_name).decode()
 
     # Split the text into words and convert to lower case
 
