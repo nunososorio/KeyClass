@@ -68,6 +68,7 @@ if text_file is not None and keywords_file is not None:
 
     # Initialize an empty dictionary to store the frequencies
     freqs = {}
+    normfreqs = {}
 
     # Loop through the keywords and categories
     for category, words in keywords.items():
