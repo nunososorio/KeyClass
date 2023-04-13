@@ -4,6 +4,7 @@ import streamlit as st
 import os
 import tempfile
 from docx import Document
+import re
 
 # Create a title and a sidebar
 st.title("KeyClass: Text Classification based on Keywords")
