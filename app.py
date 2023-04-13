@@ -97,16 +97,10 @@ else:
     st.write("Please upload or choose both files to start.")
 
 # Display a markdown text to explain the format of the keywords file
-st.markdown("""
+st.sidebar.markdown("""
 ## Keywords File Format
 
 The keywords file should be a txt file with one line per category. Each line should have the following format:
 
 `Category: keyword1, keyword2, keyword3`
-
-For example:
-
-`Fruits: apple, banana, orange`
-`Animals: dog, cat, bird`
-`Colors: red, green, blue`
 """)
