@@ -104,13 +104,13 @@ if text_file is not None and keywords_file is not None:
         if any(word in words for word in text.lower().split()):
           # Add the category to the list
           labels.append(category)
-         # Count the frequency of keywords for each category in the text
-         freq = sum([text.lower().split().count(word) for word in words])
-         # Normalize the frequency by dividing by the total number of keywords
-         normfreq = freq / total_keywords
-         # Update the frequency in the dictionary
-         freqs[category] = freq
-         normfreqs[category] = normfreq
+          # Count the frequency of keywords for each category in the text
+          freq = sum([text.lower().split().count(word) for word in words])
+          # Normalize the frequency by dividing by the total number of keywords
+          normfreq = freq / total_keywords
+          # Update the frequency in the dictionary
+          freqs[category] = freq
+          normfreqs[category] = normfreq
 
     # Create a bar plot with the frequencies for each category
     fig, ax = plt.subplots()
