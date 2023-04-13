@@ -5,6 +5,7 @@ import os
 import tempfile
 from docx import Document
 import re
+import numpy as np
 
 # Create a title and a sidebar
 st.title("KeyClass: Text Classification based on Keywords")
