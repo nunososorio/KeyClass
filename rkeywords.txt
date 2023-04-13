@@ -1,1 +1,3 @@
-Fruits: apple, banana, orange Animals: dog, cat, bird Colors: red, green, blue
+Fruits: apple, banana, orange 
+Animals: dog, cat, bird 
+Colors: red, green, blue
