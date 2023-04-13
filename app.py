@@ -79,9 +79,9 @@ if text_file is not None and keywords_file is not None:
             freqs[category] = freq
 
     # Display the text and the categories
-    st.subheader("Text")
+    st.subheader("Text extracted from the upload document:")
     st.write(text)
-    st.subheader("Categories")
+    st.subheader("Categories Keyword Analysis:")
     st.write(", ".join(labels))
 
     # Plot a bar chart with the frequencies of keywords for each category
