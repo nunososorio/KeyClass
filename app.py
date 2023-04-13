@@ -80,10 +80,10 @@ if text_file is not None and keywords_file is not None:
             
     # Create a new string with highlighted keywords
     highlighted_text = text
-        for category, words in keywords.items():
-            for word in words:
+    for category, words in keywords.items():
+        for word in words:
         # Use a regular expression to only replace whole words
-                highlighted_text = re.sub(r'\b' + word + r'\b', '<span style="color:orange">' + word + '</span>', highlighted_text)
+            highlighted_text = re.sub(r'\b' + word + r'\b', '<span style="color:orange">' + word + '</span>', highlighted_text)
             
     # Display the text and the categories
     st.subheader("Text extracted from the uploaded document:")
