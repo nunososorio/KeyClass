@@ -83,6 +83,15 @@ if text_file is not None and keywords_file is not None:
     st.write(text)
     st.subheader("Categories Keyword Analysis:")
     st.write(", ".join(labels))
+    
+    # Create a new string with highlighted keywords
+    highlighted_text = text
+    for category, words in keywords.items():
+    for word in words:
+    highlighted_text = highlighted_text.replace(word, '**' + word + '**')
+
+    # Display the highlighted text using markdown
+    st.markdown(highlighted_text)
 
     # Plot a bar chart with the frequencies of keywords for each category
     fig, ax = plt.subplots()
