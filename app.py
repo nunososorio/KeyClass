@@ -96,11 +96,11 @@ else:
     # Display a message if both files are not uploaded or exist
     st.write("Please upload or choose both files to start.")
 
-# Display a markdown text to explain the format of the keywords file
-st.sidebar.markdown("""
-## Keywords File Format
+    # Display a markdown text to explain the format of the keywords file
+    st.sidebar.markdown("""
+    ## Keywords File Format
 
-The keywords file should be a txt file with one line per category. Each line should have the following format:
+    The keywords file should be a txt file with one line per category. Each line should have the following format:
 
-`Category: keyword1, keyword2, keyword3`
-""")
+    `Category: keyword1, keyword2, keyword3`
+    """)
