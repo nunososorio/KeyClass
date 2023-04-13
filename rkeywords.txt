@@ -1,0 +1,7 @@
+
+Fruits: apple, banana, orange
+Animals: dog, cat, bird
+Colors: red, green, blue
+Vehicles: car, bike, bus
+Foods: pizza, burger, salad
+Emotions: happy, sad, angry
