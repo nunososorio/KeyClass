@@ -79,7 +79,7 @@ if text_file is not None and keywords_file is not None:
             freqs[category] = freq
 
     # Display the text and the categories
-    st.subheader("Text extracted from the upload document:")
+    st.subheader("Text extracted from the uploaded document:")
     st.write(text)
     st.subheader("Categories Keyword Analysis:")
     st.write(", ".join(labels))
