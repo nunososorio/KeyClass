@@ -1,17 +1,16 @@
 # Import the libraries
 import matplotlib.pyplot as plt
-import textract
 import streamlit as st
 import os
 import tempfile
-import chardet
+from docx import Document
 
 # Create a title and a sidebar
 st.title("KeyClass: Text Classification based on Keywords")
 st.sidebar.header("Upload your files")
 
 # Define the file name and extension for the text file
-text_file = st.sidebar.file_uploader("Choose a text file", type=["doc", "docx", "pdf"])
+text_file = st.sidebar.file_uploader("Choose a text file", type=["docx"])
 
 # Define the option for the keywords file
 option = st.sidebar.radio("Choose the keywords option", ["Default", "Custom"])
@@ -26,16 +25,9 @@ else:
 
 # Check if both files are uploaded or exist
 if text_file is not None and keywords_file is not None:
-    # Create a temporary file
-    with tempfile.NamedTemporaryFile(delete=False) as tmp:
-        # Write the uploaded file content to the temporary file
-        tmp.write(text_file.getvalue())
-        # Get the temporary file name
-        tmp_file_name = tmp.name
-    # Detect the encoding of the text file
-    encoding = chardet.detect(text_file.getvalue())["encoding"]
-    # Extract the text from the temporary file using the detected encoding
-    text = textract.process(tmp_file_name, encoding=encoding).decode()
+    # Read the uploaded file content
+    document = Document(text_file)
+    text = '\n'.join([paragraph.text for paragraph in document.paragraphs])
 
     # Split the text into words and convert to lower case
     words = text.lower().split()
