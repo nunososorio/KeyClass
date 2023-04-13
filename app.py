@@ -117,6 +117,16 @@ if text_file is not None and keywords_file is not None:
     ax.set_ylabel("Normalized Frequencies")
     ax.set_title("Normalized frequency of keywords for each category in the text")
     st.pyplot(fig)
+    
+    # Create a polar plot with the normalized frequencies for each category
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='polar')
+    theta = np.arange(len(freqs)) * 2 * np.pi / len(freqs)
+    ax.plot(theta, list(freqs.values()))
+    ax.set_xticks(theta)
+    ax.set_xticklabels(freqs.keys())
+    ax.set_title("Normalized frequency of keywords for each category in the text")
+    st.pyplot(fig)
 
 else:
     # Display a message if both files are not uploaded or exist
