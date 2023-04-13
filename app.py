@@ -82,18 +82,13 @@ if text_file is not None and keywords_file is not None:
     highlighted_text = text
     for category, words in keywords.items():
         for word in words:
-            highlighted_text = highlighted_text.replace(word, '**' + word + '**')
+            highlighted_text = highlighted_text.replace(word, '<span style="color:green">' + word + '</span>')
             
     # Display the text and the categories
     st.subheader("Text extracted from the uploaded document:")
-    st.write(text)
+    st.write(highlighted_text)
     st.subheader("Categories Keyword Analysis:")
-    st.write(", ".join(labels))
    
-
-    # Display the highlighted text using markdown
-    st.markdown(highlighted_text)
-
     # Plot a bar chart with the frequencies of keywords for each category
     fig, ax = plt.subplots()
     ax.bar(freqs.keys(), freqs.values())
@@ -101,6 +96,7 @@ if text_file is not None and keywords_file is not None:
     ax.set_ylabel("Frequencies")
     ax.set_title("Frequency of keywords for each category in the text")
     st.pyplot(fig)
+    st.write(", ".join(labels))
 
 else:
     # Display a message if both files are not uploaded or exist
