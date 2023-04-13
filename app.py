@@ -77,18 +77,19 @@ if text_file is not None and keywords_file is not None:
             freq = sum([text.lower().split().count(word) for word in words])
             # Add the frequency to the dictionary
             freqs[category] = freq
-
+            
+    # Create a new string with highlighted keywords
+    highlighted_text = text
+    for category, words in keywords.items():
+        for word in words:
+            highlighted_text = highlighted_text.replace(word, '**' + word + '**')
+            
     # Display the text and the categories
     st.subheader("Text extracted from the uploaded document:")
     st.write(text)
     st.subheader("Categories Keyword Analysis:")
     st.write(", ".join(labels))
-    
-    # Create a new string with highlighted keywords
-    highlighted_text = text
-    for category, words in keywords.items():
-    for word in words:
-    highlighted_text = highlighted_text.replace(word, '**' + word + '**')
+   
 
     # Display the highlighted text using markdown
     st.markdown(highlighted_text)
