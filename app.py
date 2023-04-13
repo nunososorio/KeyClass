@@ -91,10 +91,24 @@ if text_file is not None and keywords_file is not None:
     st.markdown(highlighted_text, unsafe_allow_html=True)
     st.subheader("Categories Keyword Analysis:")
    
-    # Plot a bar chart with the frequencies of keywords for each category
+    # Initialize the freqs dictionary with all categories and set their initial values to 0
+    freqs = {category: 0 for category in keywords.keys()}
+
+    # Loop through the keywords and categories
+    for category, words in keywords.items():
+        # Check if the text contains any keyword for each category
+        if any(word in words for word in text.lower().split()):
+            # Add the category to the list
+            labels.append(category)
+            # Count the frequency of keywords for each category in the text
+            freq = sum([text.lower().split().count(word) for word in words])
+            # Update the frequency in the dictionary
+            freqs[category] = freq
+
+    # Create a bar plot with the frequencies for each category
     fig, ax = plt.subplots()
     ax.bar(freqs.keys(), freqs.values())
-    ax.set_xlabel("Categories")
+    #ax.set_xlabel("Categories")
     ax.set_ylabel("Frequencies")
     ax.set_title("Frequency of keywords for each category in the text")
     st.pyplot(fig)
