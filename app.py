@@ -86,7 +86,7 @@ if text_file is not None and keywords_file is not None:
             
     # Display the text and the categories
     st.subheader("Text extracted from the uploaded document:")
-    st.write(highlighted_text)
+    st.markdown(highlighted_text, unsafe_allow_html=True)
     st.subheader("Categories Keyword Analysis:")
    
     # Plot a bar chart with the frequencies of keywords for each category
@@ -96,7 +96,6 @@ if text_file is not None and keywords_file is not None:
     ax.set_ylabel("Frequencies")
     ax.set_title("Frequency of keywords for each category in the text")
     st.pyplot(fig)
-    st.write(", ".join(labels))
 
 else:
     # Display a message if both files are not uploaded or exist
