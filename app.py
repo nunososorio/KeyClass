@@ -7,6 +7,7 @@ from docx import Document
 
 # Create a title and a sidebar
 st.title("KeyClass: Text Classification based on Keywords")
+st.markdown("by Nuno S. Osório")
 st.sidebar.header("Upload your files")
 
 # Define the file name and extension for the text file
