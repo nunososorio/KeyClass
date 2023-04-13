@@ -95,6 +95,7 @@ if text_file is not None and keywords_file is not None:
    
     # Initialize the freqs dictionary with all categories and set their initial values to 0
     freqs = {category: 0 for category in keywords.keys()}
+    normfreqs = {category: 0 for category in keywords.keys()}
     
     # Calculate the total number of keywords in the text
     total_keywords = len(text.lower().split())
