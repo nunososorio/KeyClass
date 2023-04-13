@@ -107,25 +107,26 @@ if text_file is not None and keywords_file is not None:
             # Count the frequency of keywords for each category in the text
             freq = sum([text.lower().split().count(word) for word in words])
             # Normalize the frequency by dividing by the total number of keywords
-            freq = freq / total_keywords
+            normfreq = freq / total_keywords
             # Update the frequency in the dictionary
             freqs[category] = freq
+            normfreqs[category] = normfreq
 
     # Create a bar plot with the normalized frequencies for each category
     fig, ax = plt.subplots()
     ax.bar(freqs.keys(), freqs.values())
     ax.set_xlabel("Categories")
-    ax.set_ylabel("Normalized Frequencies")
-    ax.set_title("Normalized frequency of keywords for each category in the text")
+    ax.set_ylabel("Frequencies")
+    ax.set_title("frequency of keywords for each category in the text")
     st.pyplot(fig)
     
     # Create a polar plot with the normalized frequencies for each category
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='polar')
-    theta = np.arange(len(freqs)) * 2 * np.pi / len(freqs)
-    ax.plot(theta, list(freqs.values()))
+    theta = np.arange(len(normfreqs)) * 2 * np.pi / len(normfreqs)
+    ax.plot(theta, list(normfreqs.values()))
     ax.set_xticks(theta)
-    ax.set_xticklabels(freqs.keys())
+    ax.set_xticklabels(normfreqs.keys())
     ax.set_title("Normalized frequency of keywords for each category in the text")
     st.pyplot(fig)
 
