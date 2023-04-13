@@ -7,3 +7,4 @@ python-docx
 scipy
 textract
 chardet
+numpy
