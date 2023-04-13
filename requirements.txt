@@ -6,3 +6,4 @@ Pillow
 python-docx
 scipy
 textract
+chardet
